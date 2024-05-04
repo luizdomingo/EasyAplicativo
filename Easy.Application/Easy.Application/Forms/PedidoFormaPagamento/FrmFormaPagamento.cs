@@ -1,6 +1,7 @@
 ﻿using Easy.Services.Dtos.PedidoFormaPagamento;
 using Easy.Services.Interfaces.PagamentoPedido;
-using Easy.Services.Services;
+using Easy.Services.Services.API;
+using Easy.Services.Shared;
 
 namespace Easy.Application.Forms.PedidoFormaPagamento
 {
@@ -21,28 +22,47 @@ namespace Easy.Application.Forms.PedidoFormaPagamento
 
         private async Task GetPagamentos()
         {
-            var result = await _service.GetAll();
+            Services.Dtos.ResponseDto<List<FormaPagamentoDto>> result = await _service.GetAll();
+            if (!result.Status)
+            {
+                MessageBox.Show($"Erro.Detalhes: {result.Mensagem}");
+                return;
+            }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = result.Dados;
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-
-            FormaPagamentoDtoCreate createFk = new FormaPagamentoDtoCreate
+            try
             {
-                DescricaoFormaPg = textBox1.Text,
+                FormaPagamentoDtoCreate createFk = new FormaPagamentoDtoCreate
+                {
+                    DescricaoFormaPg = textBox1.Text,
 
-            };
+                };
 
-            var result = await _service.Create(createFk);
+                Services.Dtos.ResponseDto<List<FormaPagamentoDto>> result = await _service.Create(createFk);
 
-            if (!result.Status)
+                if (!result.Status)
+                {
+                    MessageBox.Show($"Erro.Detalhes: {result.Mensagem}");
+                    return;
+                }
+
+                await GetPagamentos();
+            }
+            catch (HttpStatusCodeResponseErrors ex)
             {
-                MessageBox.Show(result.Mensagem);
+                MessageBox.Show(ex.Message);
             }
 
-            await GetPagamentos();
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

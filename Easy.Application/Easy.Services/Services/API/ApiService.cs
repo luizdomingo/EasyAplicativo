@@ -1,6 +1,5 @@
 ﻿using Easy.Services.Dtos.UserIdentity;
 using Easy.Services.Interfaces.API;
-using Easy.Services.Shared;
 using RestSharp;
 using System.Net;
 
@@ -41,14 +40,16 @@ namespace Easy.Services.Services.API
 
 
                 RestResponse response = await client.ExecuteAsync(request);
+                return response.Content;
 
 
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    return response.Content;
-                }
-                else
-                    return GetStatusCode(response);
+
+                //if (response.StatusCode == HttpStatusCode.OK)
+                //{
+                //    return response.Content;
+                //}
+                //else
+                //    return GetStatusCode(response);
 
 
             }
@@ -71,7 +72,7 @@ namespace Easy.Services.Services.API
         {
             try
             {
-               // string token = Globais.UserLogado.AccessToken;
+                // string token = Globais.UserLogado.AccessToken;
 
                 RestClient client;
                 RestRequest request;
@@ -165,8 +166,8 @@ namespace Easy.Services.Services.API
                 switch (response.StatusCode)
                 {
 
-                    case HttpStatusCode.NoContent:
-                        throw new HttpStatusCodeResponseErrors("No Content");
+                    //case HttpStatusCode.NoContent:
+                    //    throw new HttpStatusCodeResponseErrors("No Content");
 
                     case HttpStatusCode.BadRequest:
                         throw new HttpStatusCodeResponseErrors($"Bad Request: {response.Content}");

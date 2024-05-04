@@ -28,10 +28,9 @@ namespace Easy.Services.Services.PedidoFormaPagamento
         {
             try
             {
-
-                var fullUrl = $"{Globais.urlBaseAPI}/api/PedidosFormasPagamentos/forma-pagamento";
-                var result = await _services.Get(fullUrl); 
-                var resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
+                string fullUrl = $"{Globais.UrlApiBase}/api/PedidosFormasPagamentos/forma-pagamento";
+                string result = await _services.Get(fullUrl);
+                ResponseDto<List<FormaPagamentoDto>>? resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
                 return resposta;
             }
             catch (Exception)
@@ -45,8 +44,8 @@ namespace Easy.Services.Services.PedidoFormaPagamento
         {
             try
             {
-                var fullUrl = $"{Globais.urlBaseAPI}/api/PedidosFormasPagamentos/forma-pagamento/{id}/id";
-                var result = await _services.Get(fullUrl); var resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
+                string fullUrl = $"{Globais.UrlApiBase}/api/PedidosFormasPagamentos/forma-pagamento/{id}/id";
+                string result = await _services.Get(fullUrl); ResponseDto<List<FormaPagamentoDto>>? resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
                 return resposta;
             }
             catch (Exception)
@@ -59,9 +58,9 @@ namespace Easy.Services.Services.PedidoFormaPagamento
         {
             try
             {
-                var fullUrl = $"{Globais.urlBaseAPI}/api/PedidosFormasPagamentos/forma-pagamento/create";
-                var result = await AppServicos.IApiService.Post(fullUrl, formaPagamentoDtoCreate);
-                var resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
+                string fullUrl = $"{Globais.UrlApiBase}/api/PedidosFormasPagamentos/forma-pagamento/create";
+                string result = await AppServicos.IApiService.Post(fullUrl, formaPagamentoDtoCreate);
+                ResponseDto<List<FormaPagamentoDto>>? resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
                 return resposta;
             }
             catch (Exception)

@@ -1,5 +1,5 @@
-using Easy.Application.Forms.PedidoFormaPagamento;
-using Easy.Services.Services;
+using Easy.Application.Forms.Login;
+using Easy.Services.Shared;
 
 namespace Easy.Application
 {
@@ -14,10 +14,14 @@ namespace Easy.Application
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-           
-            
+
+            string url = Properties.Settings.Default.UrlApiBase;
+            Globais.SetUrlApiBase(url);
+
             AppServicos.RequisicaoServicos();
-            FrmFormaPagamento frm = new FrmFormaPagamento();
+
+
+            FrmLogin frm = new FrmLogin();
             frm.ShowDialog();
         }
     }
