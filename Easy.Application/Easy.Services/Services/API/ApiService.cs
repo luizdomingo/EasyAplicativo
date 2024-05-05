@@ -1,6 +1,8 @@
 ﻿using Easy.Services.Dtos.UserIdentity;
 using Easy.Services.Interfaces.API;
+using Easy.Services.Shared;
 using RestSharp;
+using System.Data;
 using System.Net;
 
 namespace Easy.Services.Services.API
@@ -12,19 +14,6 @@ namespace Easy.Services.Services.API
             try
             {
 
-
-                string token = null;
-                if (objPost is UsuarioLoginRequest)
-                {
-
-                }
-                else
-                {
-                    //if (Globais.UserLogado.AccessToken != null)
-                    //    token = Globais.UserLogado.AccessToken;
-                }
-
-
                 RestClient client;
                 RestRequest request;
                 client = new RestClient(url);
@@ -32,36 +21,26 @@ namespace Easy.Services.Services.API
                 request.RequestFormat = DataFormat.Json;
 
 
-                if (token != null)
-                    request.AddHeader("authorization", "Bearer " + token);
+                if (objPost is UsuarioLoginRequest)
+                {
+
+                }
+                else
+                {
+                    request.AddHeader("authorization", "Bearer " + Globais.GetToken());
+                }
 
                 if (objPost != null)
                     request.AddBody(objPost);
 
 
                 RestResponse response = await client.ExecuteAsync(request);
+                if (response.StatusCode == 0)
+                {
+                    throw new Exception(response.ErrorMessage);
+                }
                 return response.Content;
-
-
-
-                //if (response.StatusCode == HttpStatusCode.OK)
-                //{
-                //    return response.Content;
-                //}
-                //else
-                //    return GetStatusCode(response);
-
-
             }
-            catch (HttpStatusCodeResponseErrors ex)
-            {
-                throw new HttpStatusCodeResponseErrors(ex.Message);
-            }
-            catch (HttpRequestException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
@@ -72,7 +51,6 @@ namespace Easy.Services.Services.API
         {
             try
             {
-                // string token = Globais.UserLogado.AccessToken;
 
                 RestClient client;
                 RestRequest request;
@@ -80,35 +58,25 @@ namespace Easy.Services.Services.API
                 request = new RestRequest(url, Method.Put);
                 request.RequestFormat = DataFormat.Json;
 
+                string token = Globais.GetToken();
+                if (token != null)
+                    request.AddHeader("authorization", "Bearer " + token);
 
-                //if (token != null)
-                //    request.AddHeader("authorization", "Bearer " + token);
 
                 if (objUpdate != null)
                     request.AddBody(objUpdate);
 
 
                 RestResponse response = await client.ExecuteAsync(request);
-
-
-                if (response.StatusCode == HttpStatusCode.OK)
+                if (response.StatusCode == 0)
                 {
-                    return response.Content;
+                    throw new Exception(response.ErrorMessage);
                 }
-                else
-                    return GetStatusCode(response);
+
+                return response.Content;
 
 
             }
-            catch (HttpStatusCodeResponseErrors ex)
-            {
-                throw new HttpStatusCodeResponseErrors(ex.Message);
-            }
-            catch (HttpRequestException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
@@ -120,7 +88,7 @@ namespace Easy.Services.Services.API
             try
             {
 
-                //string token = Globais.UserLogado.AccessToken;
+                string token = Globais.GetToken();
 
                 RestClient client;
                 RestRequest request;
@@ -129,71 +97,23 @@ namespace Easy.Services.Services.API
                 request.RequestFormat = DataFormat.Json;
 
 
-                //if (token != null)
-                //    request.AddHeader("authorization", "Bearer " + token);
+                if (token != null)
+                    request.AddHeader("authorization", "Bearer " + token);
 
                 RestResponse response = await client.ExecuteAsync(request);
-
-
-                if (response.StatusCode == HttpStatusCode.OK)
+                if (response.StatusCode == 0)
                 {
-                    return response.Content;
+                    throw new Exception(response.ErrorMessage);
                 }
-                else
-                    return GetStatusCode(response);
+
+                return response.Content;
 
 
             }
-            catch (HttpStatusCodeResponseErrors ex)
-            {
-                throw new HttpStatusCodeResponseErrors(ex.Message);
-            }
-            catch (HttpRequestException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
-
-        private string GetStatusCode(RestResponse response)
-        {
-            if (!response.IsSuccessStatusCode)
-            {
-                switch (response.StatusCode)
-                {
-
-                    //case HttpStatusCode.NoContent:
-                    //    throw new HttpStatusCodeResponseErrors("No Content");
-
-                    case HttpStatusCode.BadRequest:
-                        throw new HttpStatusCodeResponseErrors($"Bad Request: {response.Content}");
-
-
-                    case HttpStatusCode.Unauthorized:
-                        throw new HttpStatusCodeResponseErrors("Sem permisão");
-
-                    case HttpStatusCode.NotFound:
-                        throw new HttpStatusCodeResponseErrors($"Not Found- {response.ResponseUri}");
-
-                    case HttpStatusCode.MethodNotAllowed:
-                        throw new HttpStatusCodeResponseErrors("Não implementado");
-
-                    case HttpStatusCode.InternalServerError:
-                        throw new HttpStatusCodeResponseErrors("Erro no servidor");
-                    case HttpStatusCode.NotImplemented:
-                        break;
-                    case HttpStatusCode.UnsupportedMediaType:
-                        throw new HttpStatusCodeResponseErrors(response.Content.ToString());
-                    default:
-                        throw new HttpStatusCodeResponseErrors(response.ErrorMessage);
-                }
-            }
-            return "Erro não detalhado";
-        }
-
     }
 }

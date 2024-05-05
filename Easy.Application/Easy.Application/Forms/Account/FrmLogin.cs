@@ -1,11 +1,11 @@
-﻿using Easy.Application.Forms.Account;
-using Easy.Application.Forms.Home;
-using Easy.Application.Shared;
+﻿using Easy.ApplicationDesk.Forms.Account;
+using Easy.ApplicationDesk.Forms.Home;
+using Easy.ApplicationDesk.Shared;
 using Easy.Services.Dtos.UserIdentity;
 using Easy.Services.Interfaces.Account;
 using Easy.Services.Shared;
 
-namespace Easy.Application.Forms.Login
+namespace Easy.ApplicationDesk.Forms.Login
 {
     public partial class FrmLogin : Form
     {

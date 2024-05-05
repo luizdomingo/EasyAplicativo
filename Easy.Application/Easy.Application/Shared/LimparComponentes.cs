@@ -1,6 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 
-namespace Easy.Application.Shared
+namespace Easy.ApplicationDesk.Shared
 {
     public static class LimparComponentes
     {

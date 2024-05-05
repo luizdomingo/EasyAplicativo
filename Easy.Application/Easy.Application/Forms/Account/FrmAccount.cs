@@ -1,4 +1,4 @@
-﻿namespace Easy.Application.Forms.Account
+﻿namespace Easy.ApplicationDesk.Forms.Account
 {
     public partial class FrmAccount : Form
     {

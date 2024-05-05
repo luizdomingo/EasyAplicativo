@@ -1,4 +1,4 @@
-﻿namespace Easy.Application.Forms.Login
+﻿namespace Easy.ApplicationDesk.Forms.Login
 {
     partial class FrmLogin
     {
@@ -190,14 +190,14 @@
             lblResult.ForeColor = Color.FromArgb(154, 156, 181);
             lblResult.Location = new Point(23, 55);
             lblResult.Name = "lblResult";
-            lblResult.Size = new Size(272, 25);
+            lblResult.Size = new Size(272, 50);
             lblResult.TabIndex = 1;
             lblResult.Text = "Entre com sua conta para acessar";
             // 
             // label4
             // 
             label4.ForeColor = Color.FromArgb(154, 156, 181);
-            label4.Location = new Point(23, 80);
+            label4.Location = new Point(23, 105);
             label4.Name = "label4";
             label4.Size = new Size(272, 25);
             label4.TabIndex = 2;
@@ -206,7 +206,7 @@
             // txtEmail
             // 
             txtEmail.CustomizableEdges = customizableEdges3;
-            txtEmail.DefaultText = "";
+            txtEmail.DefaultText = "admin@ec.com";
             txtEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtEmail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtEmail.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -214,7 +214,7 @@
             txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEmail.Font = new Font("Segoe UI", 9F);
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(23, 108);
+            txtEmail.Location = new Point(23, 133);
             txtEmail.Name = "txtEmail";
             txtEmail.PasswordChar = '\0';
             txtEmail.PlaceholderText = "informe o e-mail";
@@ -226,7 +226,7 @@
             // label5
             // 
             label5.ForeColor = Color.FromArgb(154, 156, 181);
-            label5.Location = new Point(23, 147);
+            label5.Location = new Point(23, 172);
             label5.Name = "label5";
             label5.Size = new Size(272, 25);
             label5.TabIndex = 4;
@@ -235,7 +235,7 @@
             // txtSenha
             // 
             txtSenha.CustomizableEdges = customizableEdges5;
-            txtSenha.DefaultText = "";
+            txtSenha.DefaultText = "123456";
             txtSenha.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSenha.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtSenha.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -243,7 +243,7 @@
             txtSenha.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSenha.Font = new Font("Segoe UI", 9F);
             txtSenha.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSenha.Location = new Point(23, 175);
+            txtSenha.Location = new Point(23, 200);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '●';
             txtSenha.PlaceholderText = "informe a senha";
@@ -267,7 +267,7 @@
             btnEntrar.FillColor = Color.RoyalBlue;
             btnEntrar.Font = new Font("Segoe UI", 9F);
             btnEntrar.ForeColor = Color.White;
-            btnEntrar.Location = new Point(210, 217);
+            btnEntrar.Location = new Point(210, 242);
             btnEntrar.Margin = new Padding(190, 3, 3, 3);
             btnEntrar.Name = "btnEntrar";
             btnEntrar.ShadowDecoration.CustomizableEdges = customizableEdges8;

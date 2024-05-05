@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Easy.Application.Shared
+namespace Easy.ApplicationDesk.Shared
 {
     public static class ValidarDataAnnotation
     {

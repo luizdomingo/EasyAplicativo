@@ -1,7 +1,7 @@
-using Easy.Application.Forms.Login;
+using Easy.ApplicationDesk.Forms.Login;
 using Easy.Services.Shared;
 
-namespace Easy.Application
+namespace Easy.ApplicationDesk
 {
     internal static class Program
     {
@@ -20,9 +20,8 @@ namespace Easy.Application
 
             AppServicos.RequisicaoServicos();
 
-
-            FrmLogin frm = new FrmLogin();
-            frm.ShowDialog();
+            System.Windows.Forms.Application.Run(new FrmLogin());
+           
         }
     }
 }

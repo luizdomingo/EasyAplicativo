@@ -1,9 +1,9 @@
-﻿using Easy.Application.Shared;
+﻿using Easy.ApplicationDesk.Shared;
 using Easy.Services.Dtos.UserIdentity;
 using Easy.Services.Interfaces.Account;
 using Easy.Services.Shared;
 
-namespace Easy.Application.Forms.Account
+namespace Easy.ApplicationDesk.Forms.Account
 {
     public partial class FrmAccountCreate : Form
     {

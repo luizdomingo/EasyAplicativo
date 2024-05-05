@@ -34,8 +34,10 @@ namespace Easy.Services.Services.Account
             }
             catch (Exception ex)
             {
-
-                throw new Exception(ex.Message);
+                ResponseDto<List<UsuarioCadastroResponse>> response = new ResponseDto<List<UsuarioCadastroResponse>>();
+                response.Mensagem = ex.Message;
+                response.Status = false;
+                return response;
             }
         }
 
@@ -50,8 +52,10 @@ namespace Easy.Services.Services.Account
             }
             catch (Exception ex)
             {
-
-                throw new Exception(ex.Message);
+                ResponseDto<List<UsuarioLoginResponse>> response = new ResponseDto<List<UsuarioLoginResponse>>();
+                response.Mensagem = ex.Message;
+                response.Status = false;
+                return response;                
             }
         }
     }
