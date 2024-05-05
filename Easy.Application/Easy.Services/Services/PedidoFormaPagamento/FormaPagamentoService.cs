@@ -3,6 +3,7 @@ using Easy.Services.Dtos.PedidoFormaPagamento;
 using Easy.Services.Interfaces.API;
 using Easy.Services.Interfaces.PagamentoPedido;
 using Easy.Services.Shared;
+using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Easy.Services.Services.PedidoFormaPagamento
@@ -33,10 +34,12 @@ namespace Easy.Services.Services.PedidoFormaPagamento
                 ResponseDto<List<FormaPagamentoDto>>? resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
                 return resposta;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                ResponseDto<List<FormaPagamentoDto>> resposta = new ResponseDto<List<FormaPagamentoDto>>();
+                resposta.Status = false;
+                resposta.Mensagem = $"Erro interno do sistema.Detalhes:  {ex.Message}";
+                return resposta;
             }
         }
 
@@ -48,10 +51,12 @@ namespace Easy.Services.Services.PedidoFormaPagamento
                 string result = await _services.Get(fullUrl); ResponseDto<List<FormaPagamentoDto>>? resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
                 return resposta;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                ResponseDto<List<FormaPagamentoDto>> resposta = new ResponseDto<List<FormaPagamentoDto>>();
+                resposta.Status = false;
+                resposta.Mensagem = $"Erro interno do sistema.Detalhes:  {ex.Message}";
+                return resposta;
             }
         }
         public async Task<ResponseDto<List<FormaPagamentoDto>>> Create(FormaPagamentoDtoCreate formaPagamentoDtoCreate)
@@ -63,10 +68,12 @@ namespace Easy.Services.Services.PedidoFormaPagamento
                 ResponseDto<List<FormaPagamentoDto>>? resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
                 return resposta;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                ResponseDto<List<FormaPagamentoDto>> resposta = new ResponseDto<List<FormaPagamentoDto>>();
+                resposta.Status = false;
+                resposta.Mensagem = $"Erro interno do sistema.Detalhes:  {ex.Message}";
+                return resposta;
             }
         }
         public Task<ResponseDto<List<FormaPagamentoDto>>> Update(FormaPagamentoDtoUpdate formaPagamentoDtoUpdate)
