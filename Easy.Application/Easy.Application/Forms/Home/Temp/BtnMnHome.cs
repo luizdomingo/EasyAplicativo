@@ -88,6 +88,6 @@ namespace Easy.ApplicationDesk.Forms.Home.Temp
             mouseLeave(tblPrincipal);
         }
 
-       
+
     }
 }

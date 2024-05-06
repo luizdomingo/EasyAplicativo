@@ -42,10 +42,10 @@
             btnFuncoes = new FontAwesome.Sharp.IconButton();
             btnCadastrarUsuarios = new FontAwesome.Sharp.IconButton();
             btnMnProdutos = new Temp.BtnMnHome();
-            btnMedida = new FontAwesome.Sharp.IconButton();
-            btnPrecoProduto = new FontAwesome.Sharp.IconButton();
             btnCategoriaProduto = new FontAwesome.Sharp.IconButton();
             btnTipoProduto = new FontAwesome.Sharp.IconButton();
+            btnPrecoProduto = new FontAwesome.Sharp.IconButton();
+            btnMedida = new FontAwesome.Sharp.IconButton();
             tblForms = new TableLayoutPanel();
             pnlControles = new Panel();
             lblTitulo = new Label();
@@ -172,10 +172,10 @@
             flowLayoutPanel1.Controls.Add(btnFuncoes);
             flowLayoutPanel1.Controls.Add(btnCadastrarUsuarios);
             flowLayoutPanel1.Controls.Add(btnMnProdutos);
-            flowLayoutPanel1.Controls.Add(btnMedida);
-            flowLayoutPanel1.Controls.Add(btnPrecoProduto);
             flowLayoutPanel1.Controls.Add(btnCategoriaProduto);
             flowLayoutPanel1.Controls.Add(btnTipoProduto);
+            flowLayoutPanel1.Controls.Add(btnPrecoProduto);
+            flowLayoutPanel1.Controls.Add(btnMedida);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Margin = new Padding(0);
@@ -295,56 +295,6 @@
             btnMnProdutos.Titulo = "Produtos";
             btnMnProdutos.Click += btn_produto_click;
             // 
-            // btnMedida
-            // 
-            btnMedida.Cursor = Cursors.Hand;
-            btnMedida.FlatAppearance.BorderSize = 0;
-            btnMedida.FlatStyle = FlatStyle.Flat;
-            btnMedida.ForeColor = Color.Teal;
-            btnMedida.IconChar = FontAwesome.Sharp.IconChar.RulerHorizontal;
-            btnMedida.IconColor = Color.Teal;
-            btnMedida.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnMedida.IconSize = 15;
-            btnMedida.ImageAlign = ContentAlignment.MiddleRight;
-            btnMedida.Location = new Point(0, 291);
-            btnMedida.Margin = new Padding(0, 0, 2, 0);
-            btnMedida.Name = "btnMedida";
-            btnMedida.Size = new Size(272, 30);
-            btnMedida.TabIndex = 6;
-            btnMedida.Text = "Unidades de Medida";
-            btnMedida.TextAlign = ContentAlignment.MiddleRight;
-            btnMedida.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btnMedida.UseVisualStyleBackColor = true;
-            btnMedida.Visible = false;
-            btnMedida.Click += btn_Click;
-            btnMedida.MouseEnter += btn_mouse_enter;
-            btnMedida.MouseLeave += btn_mouse_leave;
-            // 
-            // btnPrecoProduto
-            // 
-            btnPrecoProduto.Cursor = Cursors.Hand;
-            btnPrecoProduto.FlatAppearance.BorderSize = 0;
-            btnPrecoProduto.FlatStyle = FlatStyle.Flat;
-            btnPrecoProduto.ForeColor = Color.Teal;
-            btnPrecoProduto.IconChar = FontAwesome.Sharp.IconChar.Tag;
-            btnPrecoProduto.IconColor = Color.Teal;
-            btnPrecoProduto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnPrecoProduto.IconSize = 15;
-            btnPrecoProduto.ImageAlign = ContentAlignment.MiddleRight;
-            btnPrecoProduto.Location = new Point(0, 321);
-            btnPrecoProduto.Margin = new Padding(0, 0, 2, 0);
-            btnPrecoProduto.Name = "btnPrecoProduto";
-            btnPrecoProduto.Size = new Size(272, 30);
-            btnPrecoProduto.TabIndex = 5;
-            btnPrecoProduto.Text = "Preços dos Produtos";
-            btnPrecoProduto.TextAlign = ContentAlignment.MiddleRight;
-            btnPrecoProduto.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btnPrecoProduto.UseVisualStyleBackColor = true;
-            btnPrecoProduto.Visible = false;
-            btnPrecoProduto.Click += btn_Click;
-            btnPrecoProduto.MouseEnter += btn_mouse_enter;
-            btnPrecoProduto.MouseLeave += btn_mouse_leave;
-            // 
             // btnCategoriaProduto
             // 
             btnCategoriaProduto.Cursor = Cursors.Hand;
@@ -357,7 +307,7 @@
             btnCategoriaProduto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCategoriaProduto.IconSize = 15;
             btnCategoriaProduto.ImageAlign = ContentAlignment.MiddleRight;
-            btnCategoriaProduto.Location = new Point(0, 351);
+            btnCategoriaProduto.Location = new Point(0, 291);
             btnCategoriaProduto.Margin = new Padding(0, 0, 2, 0);
             btnCategoriaProduto.Name = "btnCategoriaProduto";
             btnCategoriaProduto.Size = new Size(272, 30);
@@ -367,7 +317,7 @@
             btnCategoriaProduto.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnCategoriaProduto.UseVisualStyleBackColor = false;
             btnCategoriaProduto.Visible = false;
-            btnCategoriaProduto.Click += btn_Click;
+            btnCategoriaProduto.Click += btnCategoriaProduto_Click;
             btnCategoriaProduto.MouseEnter += btn_mouse_enter;
             btnCategoriaProduto.MouseLeave += btn_mouse_leave;
             // 
@@ -384,7 +334,7 @@
             btnTipoProduto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnTipoProduto.IconSize = 15;
             btnTipoProduto.ImageAlign = ContentAlignment.MiddleRight;
-            btnTipoProduto.Location = new Point(0, 381);
+            btnTipoProduto.Location = new Point(0, 321);
             btnTipoProduto.Margin = new Padding(0, 0, 2, 0);
             btnTipoProduto.Name = "btnTipoProduto";
             btnTipoProduto.Size = new Size(272, 30);
@@ -397,6 +347,56 @@
             btnTipoProduto.Click += btn_Click;
             btnTipoProduto.MouseEnter += btn_mouse_enter;
             btnTipoProduto.MouseLeave += btn_mouse_leave;
+            // 
+            // btnPrecoProduto
+            // 
+            btnPrecoProduto.Cursor = Cursors.Hand;
+            btnPrecoProduto.FlatAppearance.BorderSize = 0;
+            btnPrecoProduto.FlatStyle = FlatStyle.Flat;
+            btnPrecoProduto.ForeColor = Color.Teal;
+            btnPrecoProduto.IconChar = FontAwesome.Sharp.IconChar.Tag;
+            btnPrecoProduto.IconColor = Color.Teal;
+            btnPrecoProduto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnPrecoProduto.IconSize = 15;
+            btnPrecoProduto.ImageAlign = ContentAlignment.MiddleRight;
+            btnPrecoProduto.Location = new Point(0, 351);
+            btnPrecoProduto.Margin = new Padding(0, 0, 2, 0);
+            btnPrecoProduto.Name = "btnPrecoProduto";
+            btnPrecoProduto.Size = new Size(272, 30);
+            btnPrecoProduto.TabIndex = 5;
+            btnPrecoProduto.Text = "Preços dos Produtos";
+            btnPrecoProduto.TextAlign = ContentAlignment.MiddleRight;
+            btnPrecoProduto.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnPrecoProduto.UseVisualStyleBackColor = true;
+            btnPrecoProduto.Visible = false;
+            btnPrecoProduto.Click += btn_Click;
+            btnPrecoProduto.MouseEnter += btn_mouse_enter;
+            btnPrecoProduto.MouseLeave += btn_mouse_leave;
+            // 
+            // btnMedida
+            // 
+            btnMedida.Cursor = Cursors.Hand;
+            btnMedida.FlatAppearance.BorderSize = 0;
+            btnMedida.FlatStyle = FlatStyle.Flat;
+            btnMedida.ForeColor = Color.Teal;
+            btnMedida.IconChar = FontAwesome.Sharp.IconChar.RulerHorizontal;
+            btnMedida.IconColor = Color.Teal;
+            btnMedida.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnMedida.IconSize = 15;
+            btnMedida.ImageAlign = ContentAlignment.MiddleRight;
+            btnMedida.Location = new Point(0, 381);
+            btnMedida.Margin = new Padding(0, 0, 2, 0);
+            btnMedida.Name = "btnMedida";
+            btnMedida.Size = new Size(272, 30);
+            btnMedida.TabIndex = 6;
+            btnMedida.Text = "Unidades de Medida";
+            btnMedida.TextAlign = ContentAlignment.MiddleRight;
+            btnMedida.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnMedida.UseVisualStyleBackColor = true;
+            btnMedida.Visible = false;
+            btnMedida.Click += btn_Click;
+            btnMedida.MouseEnter += btn_mouse_enter;
+            btnMedida.MouseLeave += btn_mouse_leave;
             // 
             // tblForms
             // 
@@ -417,7 +417,7 @@
             // 
             // pnlControles
             // 
-            pnlControles.BackColor = Color.Lavender;
+            pnlControles.BackColor = Color.FromArgb(231, 229, 255);
             pnlControles.Dock = DockStyle.Fill;
             pnlControles.Location = new Point(3, 30);
             pnlControles.Name = "pnlControles";
@@ -426,6 +426,7 @@
             // 
             // lblTitulo
             // 
+            lblTitulo.BackColor = Color.Teal;
             lblTitulo.Dock = DockStyle.Fill;
             lblTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = SystemColors.ButtonFace;

@@ -3,7 +3,6 @@ using Easy.Services.Dtos.PedidoFormaPagamento;
 using Easy.Services.Interfaces.API;
 using Easy.Services.Interfaces.PagamentoPedido;
 using Easy.Services.Shared;
-using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Easy.Services.Services.PedidoFormaPagamento

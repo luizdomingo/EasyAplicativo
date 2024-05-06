@@ -2,8 +2,6 @@
 using Easy.Services.Interfaces.API;
 using Easy.Services.Shared;
 using RestSharp;
-using System.Data;
-using System.Net;
 
 namespace Easy.Services.Services.API
 {

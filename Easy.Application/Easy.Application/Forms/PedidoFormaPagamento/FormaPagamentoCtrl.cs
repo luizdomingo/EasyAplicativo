@@ -2,7 +2,6 @@
 using Easy.Services.Dtos.PedidoFormaPagamento;
 using Easy.Services.Interfaces.PagamentoPedido;
 using Easy.Services.Shared;
-using System.Windows.Forms;
 
 namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
 {
@@ -18,9 +17,9 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
             _service = AppServicos.IFormaPagamentoService!;
             _fpgts = new List<FormaPagamentoDto>();
             tela = AcaoTela.cadastrar;
-            dtFormaPagamento.AutoGenerateColumns = false;
+            dtgvPrincipal.AutoGenerateColumns = false;
 
-            MenuDt(dtFormaPagamento);
+            MenuDt(dtgvPrincipal);
         }
         private async void FormPagamentoCtrl_Load(object sender, EventArgs e)
         {
@@ -31,7 +30,7 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
         {
 
             _fpgts = (await _service.GetAll()).Dados;
-            dtFormaPagamento.DataSource = _fpgts;
+            dtgvPrincipal.DataSource = _fpgts;
 
         }
         private void MenuDt(DataGridView dt)
@@ -77,10 +76,10 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
                 switch (e.ClickedItem.Text)
                 {
                     case "Desabilitar":
-                        if (dtFormaPagamento.SelectedRows.Count == 0)
+                        if (dtgvPrincipal.SelectedRows.Count == 0)
                             return;
 
-                        FormaPagamentoDto? dto = dtFormaPagamento.SelectedRows[0].DataBoundItem as FormaPagamentoDto;
+                        FormaPagamentoDto? dto = dtgvPrincipal.SelectedRows[0].DataBoundItem as FormaPagamentoDto;
 
                         if (dto == null)
                             return;
@@ -95,7 +94,7 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
 
                         try
                         {
-                            var result = await _service.Update(updateDto);
+                            Services.Dtos.ResponseDto<List<FormaPagamentoDto>> result = await _service.Update(updateDto);
                             if (!result.Status)
                             {
                                 MessageBox.Show(result.Mensagem);
@@ -105,8 +104,8 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
                             //MessageBox.Show("Desabilitado");
 
                             _fpgts = (await _service.GetAll()).Dados;
-                            dtFormaPagamento.DataSource = null;
-                            dtFormaPagamento.DataSource = _fpgts;
+                            dtgvPrincipal.DataSource = null;
+                            dtgvPrincipal.DataSource = _fpgts;
 
                         }
                         catch (Exception ex)
@@ -117,10 +116,10 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
 
                         break;
                     case "Habilitar":
-                        if (dtFormaPagamento.SelectedRows.Count == 0)
+                        if (dtgvPrincipal.SelectedRows.Count == 0)
                             return;
 
-                        FormaPagamentoDto? dtoD = dtFormaPagamento.SelectedRows[0].DataBoundItem as FormaPagamentoDto;
+                        FormaPagamentoDto? dtoD = dtgvPrincipal.SelectedRows[0].DataBoundItem as FormaPagamentoDto;
 
                         if (dtoD == null)
                             return;
@@ -135,7 +134,7 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
 
                         try
                         {
-                            var result = await _service.Update(updateDtoD);
+                            Services.Dtos.ResponseDto<List<FormaPagamentoDto>> result = await _service.Update(updateDtoD);
                             if (!result.Status)
                             {
                                 MessageBox.Show(result.Mensagem);
@@ -145,8 +144,8 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
                             //MessageBox.Show("Habilitado");
 
                             _fpgts = (await _service.GetAll()).Dados;
-                            dtFormaPagamento.DataSource = null;
-                            dtFormaPagamento.DataSource = _fpgts;
+                            dtgvPrincipal.DataSource = null;
+                            dtgvPrincipal.DataSource = _fpgts;
 
                         }
                         catch (Exception ex)
@@ -170,9 +169,9 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
         {
             try
             {
-                var result = _fpgts.Where(f => f.DescricaoFormaPg.ToLower().Contains(txtFormaPagamento.Text.ToLower()));
+                IEnumerable<FormaPagamentoDto> result = _fpgts.Where(f => f.DescricaoFormaPg.ToLower().Contains(txtFormaPagamento.Text.ToLower()));
 
-                dtFormaPagamento.DataSource = result.ToList();
+                dtgvPrincipal.DataSource = result.ToList();
 
                 if (!result.Any())
                 {
@@ -226,7 +225,7 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
                     }
 
 
-                    var result = await _service.Create(dtoCreate);
+                    Services.Dtos.ResponseDto<List<FormaPagamentoDto>> result = await _service.Create(dtoCreate);
                     if (result.Status)
                     {
                         await AtualizadDt();
@@ -253,12 +252,10 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
 
         private async void dtFormaPagamento_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
-
-            if (dtFormaPagamento.SelectedRows.Count == 0)
+            if (dtgvPrincipal.SelectedRows.Count == 0)
                 return;
 
-            FormaPagamentoDto? dto = dtFormaPagamento.SelectedRows[0].DataBoundItem as FormaPagamentoDto;
+            FormaPagamentoDto? dto = dtgvPrincipal.SelectedRows[0].DataBoundItem as FormaPagamentoDto;
 
             if (dto == null)
                 return;
@@ -273,7 +270,7 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
 
             try
             {
-                var result = await _service.Update(updateDto);
+                Services.Dtos.ResponseDto<List<FormaPagamentoDto>> result = await _service.Update(updateDto);
                 if (!result.Status)
                 {
                     MessageBox.Show(result.Mensagem);
@@ -310,7 +307,7 @@ namespace Easy.ApplicationDesk.Forms.PedidoFormaPagamento
                     }
 
 
-                    var result = await _service.Create(dtoCreate);
+                    Services.Dtos.ResponseDto<List<FormaPagamentoDto>> result = await _service.Create(dtoCreate);
                     if (result.Status)
                     {
                         await AtualizadDt();

@@ -1,7 +1,7 @@
 ﻿using Easy.ApplicationDesk.Forms.Alerta;
 using Easy.ApplicationDesk.Forms.PedidoFormaPagamento;
+using Easy.ApplicationDesk.Forms.Produtos;
 using FontAwesome.Sharp;
-using System.Windows.Interop;
 
 namespace Easy.ApplicationDesk.Forms.Home
 {
@@ -57,14 +57,14 @@ namespace Easy.ApplicationDesk.Forms.Home
         {
             if (esconder)
             {
-                foreach (var btn in lista)
+                foreach (IconButton btn in lista)
                 {
                     btn.Visible = false;
                 }
             }
             else
             {
-                foreach (var btn in lista)
+                foreach (IconButton btn in lista)
                 {
                     if (btn.Visible)
                         btn.Visible = false;
@@ -136,13 +136,13 @@ namespace Easy.ApplicationDesk.Forms.Home
         }
         private void btn_mouse_enter(object sender, EventArgs e)
         {
-            var btn = sender as IconButton;
+            IconButton? btn = sender as IconButton;
             mouserEnterFonts(btn!);
         }
 
         private void btn_mouse_leave(object sender, EventArgs e)
         {
-            var btn = sender as IconButton;
+            IconButton? btn = sender as IconButton;
             mouserLeaveFonts(btn!);
         }
 
@@ -150,7 +150,7 @@ namespace Easy.ApplicationDesk.Forms.Home
         #region Manipulando Click
         private void btn_Click(object sender, EventArgs e)
         {
-            var btn = sender as IconButton;
+            IconButton? btn = sender as IconButton;
 
 
             this.Alert("Tipo de Produtos", FrmAlerta.enmType.Success);
@@ -252,11 +252,16 @@ namespace Easy.ApplicationDesk.Forms.Home
         private void btnFormaPagamento_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Formas de Pagamento";
-            //tblForms.BackColor = Color.Orange;
             FormaPagamentoCtrl ctr = new FormaPagamentoCtrl();
             ChamarControle(ctr);
-            // this.Alert("Formas de Pagamento", FrmAlerta.enmType.Info);
+
         }
         #endregion
+
+        private void btnCategoriaProduto_Click(object sender, EventArgs e)
+        {
+            CategoriaProdutoCtrl ctr = new CategoriaProdutoCtrl();
+            ChamarControle(ctr);
+        }
     }
 }

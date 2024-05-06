@@ -55,7 +55,7 @@ namespace Easy.Services.Services.Account
                 ResponseDto<List<UsuarioLoginResponse>> response = new ResponseDto<List<UsuarioLoginResponse>>();
                 response.Mensagem = ex.Message;
                 response.Status = false;
-                return response;                
+                return response;
             }
         }
     }

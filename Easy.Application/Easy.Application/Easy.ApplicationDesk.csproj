@@ -11,6 +11,8 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Forms\Produto\" />
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
 
   <ItemGroup>

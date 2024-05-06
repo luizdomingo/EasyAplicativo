@@ -21,7 +21,7 @@ namespace Easy.ApplicationDesk
             AppServicos.RequisicaoServicos();
 
             System.Windows.Forms.Application.Run(new FrmLogin());
-           
+
         }
     }
 }
