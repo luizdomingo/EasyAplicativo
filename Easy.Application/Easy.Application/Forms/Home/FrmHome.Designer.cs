@@ -46,13 +46,16 @@
             btnPrecoProduto = new FontAwesome.Sharp.IconButton();
             btnCategoriaProduto = new FontAwesome.Sharp.IconButton();
             btnTipoProduto = new FontAwesome.Sharp.IconButton();
-            tableLayoutPanel3 = new TableLayoutPanel();
+            tblForms = new TableLayoutPanel();
+            pnlControles = new Panel();
+            lblTitulo = new Label();
             timer = new System.Windows.Forms.Timer(components);
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tblFormsMenus.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            tblForms.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -75,7 +78,7 @@
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.BackColor = Color.FromArgb(128, 128, 255);
+            tableLayoutPanel2.BackColor = Color.SlateBlue;
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 277F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -136,6 +139,7 @@
             // lblHome
             // 
             lblHome.Dock = DockStyle.Fill;
+            lblHome.Font = new Font("Candara", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHome.ForeColor = Color.White;
             lblHome.Location = new Point(281, 1);
             lblHome.Name = "lblHome";
@@ -150,7 +154,7 @@
             tblFormsMenus.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 274F));
             tblFormsMenus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tblFormsMenus.Controls.Add(flowLayoutPanel1, 0, 0);
-            tblFormsMenus.Controls.Add(tableLayoutPanel3, 1, 0);
+            tblFormsMenus.Controls.Add(tblForms, 1, 0);
             tblFormsMenus.Dock = DockStyle.Fill;
             tblFormsMenus.Location = new Point(3, 33);
             tblFormsMenus.Name = "tblFormsMenus";
@@ -394,19 +398,43 @@
             btnTipoProduto.MouseEnter += btn_mouse_enter;
             btnTipoProduto.MouseLeave += btn_mouse_leave;
             // 
-            // tableLayoutPanel3
+            // tblForms
             // 
-            tableLayoutPanel3.ColumnCount = 1;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(274, 0);
-            tableLayoutPanel3.Margin = new Padding(0);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(567, 445);
-            tableLayoutPanel3.TabIndex = 1;
+            tblForms.BackColor = Color.SlateGray;
+            tblForms.ColumnCount = 1;
+            tblForms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tblForms.Controls.Add(pnlControles, 0, 1);
+            tblForms.Controls.Add(lblTitulo, 0, 0);
+            tblForms.Dock = DockStyle.Fill;
+            tblForms.Location = new Point(274, 0);
+            tblForms.Margin = new Padding(0);
+            tblForms.Name = "tblForms";
+            tblForms.RowCount = 2;
+            tblForms.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
+            tblForms.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tblForms.Size = new Size(567, 445);
+            tblForms.TabIndex = 1;
+            // 
+            // pnlControles
+            // 
+            pnlControles.BackColor = Color.Lavender;
+            pnlControles.Dock = DockStyle.Fill;
+            pnlControles.Location = new Point(3, 30);
+            pnlControles.Name = "pnlControles";
+            pnlControles.Size = new Size(561, 412);
+            pnlControles.TabIndex = 0;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.Dock = DockStyle.Fill;
+            lblTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = SystemColors.ButtonFace;
+            lblTitulo.Location = new Point(3, 0);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(561, 27);
+            lblTitulo.TabIndex = 1;
+            lblTitulo.Text = "Seja bem vindo!";
+            lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // timer
             // 
@@ -434,11 +462,13 @@
             Name = "FrmHome";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmHome";
+            WindowState = FormWindowState.Maximized;
             Load += FrmHome_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tblFormsMenus.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
+            tblForms.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -460,10 +490,12 @@
         private FontAwesome.Sharp.IconButton btnCadastrarUsuarios;
         private FontAwesome.Sharp.IconButton btnFuncoes;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private TableLayoutPanel tableLayoutPanel3;
+        private TableLayoutPanel tblForms;
         private FontAwesome.Sharp.IconButton btnFormaPagamento;
         private Temp.BtnMnHome btnMnPontoVenda;
         private Temp.BtnMnHome btnMnProdutos;
         private Temp.BtnMnHome btnMnUsuarios;
+        private Panel pnlControles;
+        private Label lblTitulo;
     }
 }

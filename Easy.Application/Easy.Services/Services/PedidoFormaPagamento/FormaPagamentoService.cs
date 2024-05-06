@@ -76,9 +76,22 @@ namespace Easy.Services.Services.PedidoFormaPagamento
                 return resposta;
             }
         }
-        public Task<ResponseDto<List<FormaPagamentoDto>>> Update(FormaPagamentoDtoUpdate formaPagamentoDtoUpdate)
+        public async Task<ResponseDto<List<FormaPagamentoDto>>> Update(FormaPagamentoDtoUpdate formaPagamentoDtoUpdate)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string fullUrl = $"{Globais.UrlApiBase}/api/PedidosFormasPagamentos/forma-pagamento/update";
+                string result = await AppServicos.IApiService.Put(fullUrl, formaPagamentoDtoUpdate);
+                ResponseDto<List<FormaPagamentoDto>>? resposta = JsonSerializer.Deserialize<ResponseDto<List<FormaPagamentoDto>>>(result, _options);
+                return resposta;
+            }
+            catch (Exception ex)
+            {
+                ResponseDto<List<FormaPagamentoDto>> resposta = new ResponseDto<List<FormaPagamentoDto>>();
+                resposta.Status = false;
+                resposta.Mensagem = $"Erro interno do sistema.Detalhes:  {ex.Message}";
+                return resposta;
+            }
         }
         public Task<ResponseDto<List<FormaPagamentoDto>>> DesabilitarHabilitar(Guid id)
         {

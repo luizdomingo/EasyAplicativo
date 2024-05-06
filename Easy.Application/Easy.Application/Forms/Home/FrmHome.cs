@@ -151,7 +151,7 @@ namespace Easy.ApplicationDesk.Forms.Home
         private void btn_Click(object sender, EventArgs e)
         {
             var btn = sender as IconButton;
-            lblTitulo.Text = btn!.Text;
+
 
             this.Alert("Tipo de Produtos", FrmAlerta.enmType.Success);
         }
@@ -251,9 +251,11 @@ namespace Easy.ApplicationDesk.Forms.Home
         #region Clicks SubMenu
         private void btnFormaPagamento_Click(object sender, EventArgs e)
         {
+            lblTitulo.Text = "Formas de Pagamento";
+            //tblForms.BackColor = Color.Orange;
             FormaPagamentoCtrl ctr = new FormaPagamentoCtrl();
             ChamarControle(ctr);
-           // this.Alert("Formas de Pagamento", FrmAlerta.enmType.Info);
+            // this.Alert("Formas de Pagamento", FrmAlerta.enmType.Info);
         }
         #endregion
     }
