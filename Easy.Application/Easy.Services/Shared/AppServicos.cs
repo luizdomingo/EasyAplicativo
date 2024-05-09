@@ -1,10 +1,12 @@
 ﻿using Easy.Services.Interfaces.Account;
 using Easy.Services.Interfaces.API;
 using Easy.Services.Interfaces.PagamentoPedido;
+using Easy.Services.Interfaces.PedidoSituacao;
 using Easy.Services.Interfaces.ProdutoCategoria;
 using Easy.Services.Services.Account;
 using Easy.Services.Services.API;
 using Easy.Services.Services.PedidoFormaPagamento;
+using Easy.Services.Services.PedidoSituacao;
 using Easy.Services.Services.ProdutoCategoria;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,7 +20,7 @@ namespace Easy.Services.Shared
         public static IIdentityService? IIdentityService { get; set; }
         public static IFormaPagamentoService? IFormaPagamentoService { get; set; }
         public static ICategoriaProdutoService? ICategoriaProdutoService { get; set; }
-
+        public static ISituacaoPedidoService? ISituacaoPedidoService { get; set; }
 
         private static ServiceCollection ColecaoServico()
         {
@@ -27,6 +29,7 @@ namespace Easy.Services.Shared
             serviceCollection.AddSingleton<IIdentityService, IdentityService>();
             serviceCollection.AddSingleton<IFormaPagamentoService, FormaPagamentoService>();
             serviceCollection.AddSingleton<ICategoriaProdutoService, CategoriaProdutoService>();
+            serviceCollection.AddSingleton<ISituacaoPedidoService, SituacaoPedidoService>();
 
             return serviceCollection;
         }
@@ -38,6 +41,7 @@ namespace Easy.Services.Shared
             IIdentityService = serviceProvider.GetRequiredService<IIdentityService>();
             IFormaPagamentoService = serviceProvider.GetRequiredService<IFormaPagamentoService>();
             ICategoriaProdutoService = serviceProvider.GetRequiredService<ICategoriaProdutoService>();
+            ISituacaoPedidoService = serviceProvider.GetRequiredService<ISituacaoPedidoService>();
         }
     }
 }

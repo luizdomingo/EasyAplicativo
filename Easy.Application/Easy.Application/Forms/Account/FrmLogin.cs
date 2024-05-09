@@ -40,7 +40,7 @@ namespace Easy.ApplicationDesk.Forms.Login
                 Email = txtEmail.Text,
                 Senha = txtSenha.Text
             };
-
+           
             string validacoes = ValidarDataAnnotation.VerificarDataAnnotations(userLogin);
             if (!string.IsNullOrEmpty(validacoes))
             {

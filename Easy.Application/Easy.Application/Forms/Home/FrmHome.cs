@@ -1,5 +1,6 @@
 ﻿using Easy.ApplicationDesk.Forms.Alerta;
 using Easy.ApplicationDesk.Forms.PedidoFormaPagamento;
+using Easy.ApplicationDesk.Forms.PedidoSituacao;
 using Easy.ApplicationDesk.Forms.Produtos;
 using FontAwesome.Sharp;
 
@@ -90,6 +91,7 @@ namespace Easy.ApplicationDesk.Forms.Home
         private void CriarListaBotoesPontoVenda()
         {
             AddGrupoBotoes(_btnsPontoVenda, btnFormaPagamento);
+            AddGrupoBotoes(_btnsPontoVenda, btnSituacaoPedido);
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -262,6 +264,14 @@ namespace Easy.ApplicationDesk.Forms.Home
         {
             CategoriaProdutoCtrl ctr = new CategoriaProdutoCtrl();
             ChamarControle(ctr);
+        }
+
+        private void btnSituacaoPedido_Click(object sender, EventArgs e)
+        {
+            using (FrmSituacaoPedido frm = new FrmSituacaoPedido())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

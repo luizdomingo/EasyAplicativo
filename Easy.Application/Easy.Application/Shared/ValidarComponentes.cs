@@ -4,9 +4,6 @@ namespace Easy.ApplicationDesk.Shared
 {
     public static class ValidarComponentes
     {
-
-
-
         public static void FlowLayoutPanel(this FlowLayoutPanel flow)
         {
             foreach (object? ctr in flow.Controls)

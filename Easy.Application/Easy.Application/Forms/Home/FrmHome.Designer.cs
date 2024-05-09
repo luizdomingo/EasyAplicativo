@@ -51,6 +51,7 @@
             lblTitulo = new Label();
             timer = new System.Windows.Forms.Timer(components);
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
+            btnSituacaoPedido = new FontAwesome.Sharp.IconButton();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tblFormsMenus.SuspendLayout();
@@ -167,6 +168,7 @@
             // 
             flowLayoutPanel1.BackColor = Color.White;
             flowLayoutPanel1.Controls.Add(btnMnPontoVenda);
+            flowLayoutPanel1.Controls.Add(btnSituacaoPedido);
             flowLayoutPanel1.Controls.Add(btnFormaPagamento);
             flowLayoutPanel1.Controls.Add(btnMnUsuarios);
             flowLayoutPanel1.Controls.Add(btnFuncoes);
@@ -206,7 +208,7 @@
             btnFormaPagamento.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnFormaPagamento.IconSize = 15;
             btnFormaPagamento.ImageAlign = ContentAlignment.MiddleRight;
-            btnFormaPagamento.Location = new Point(0, 67);
+            btnFormaPagamento.Location = new Point(0, 127);
             btnFormaPagamento.Margin = new Padding(0, 0, 2, 0);
             btnFormaPagamento.Name = "btnFormaPagamento";
             btnFormaPagamento.Size = new Size(272, 30);
@@ -226,7 +228,7 @@
             btnMnUsuarios.CorIconeLed = Color.RoyalBlue;
             btnMnUsuarios.Descricao = "Cadastre usuarios, crie permissões de acordo com suas necessidades.";
             btnMnUsuarios.IconCharBtn = FontAwesome.Sharp.IconChar.ClipboardUser;
-            btnMnUsuarios.Location = new Point(3, 100);
+            btnMnUsuarios.Location = new Point(3, 160);
             btnMnUsuarios.Name = "btnMnUsuarios";
             btnMnUsuarios.Size = new Size(272, 61);
             btnMnUsuarios.TabIndex = 13;
@@ -243,7 +245,7 @@
             btnFuncoes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnFuncoes.IconSize = 15;
             btnFuncoes.ImageAlign = ContentAlignment.MiddleRight;
-            btnFuncoes.Location = new Point(0, 164);
+            btnFuncoes.Location = new Point(0, 224);
             btnFuncoes.Margin = new Padding(0, 0, 2, 0);
             btnFuncoes.Name = "btnFuncoes";
             btnFuncoes.Size = new Size(272, 30);
@@ -268,7 +270,7 @@
             btnCadastrarUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCadastrarUsuarios.IconSize = 15;
             btnCadastrarUsuarios.ImageAlign = ContentAlignment.MiddleRight;
-            btnCadastrarUsuarios.Location = new Point(0, 194);
+            btnCadastrarUsuarios.Location = new Point(0, 254);
             btnCadastrarUsuarios.Margin = new Padding(0, 0, 2, 0);
             btnCadastrarUsuarios.Name = "btnCadastrarUsuarios";
             btnCadastrarUsuarios.Size = new Size(272, 30);
@@ -288,7 +290,7 @@
             btnMnProdutos.CorIconeLed = Color.Teal;
             btnMnProdutos.Descricao = "Cadastro de produtos, preços, categorias, entre outros";
             btnMnProdutos.IconCharBtn = FontAwesome.Sharp.IconChar.CartPlus;
-            btnMnProdutos.Location = new Point(3, 227);
+            btnMnProdutos.Location = new Point(3, 287);
             btnMnProdutos.Name = "btnMnProdutos";
             btnMnProdutos.Size = new Size(272, 61);
             btnMnProdutos.TabIndex = 12;
@@ -307,7 +309,7 @@
             btnCategoriaProduto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCategoriaProduto.IconSize = 15;
             btnCategoriaProduto.ImageAlign = ContentAlignment.MiddleRight;
-            btnCategoriaProduto.Location = new Point(0, 291);
+            btnCategoriaProduto.Location = new Point(0, 351);
             btnCategoriaProduto.Margin = new Padding(0, 0, 2, 0);
             btnCategoriaProduto.Name = "btnCategoriaProduto";
             btnCategoriaProduto.Size = new Size(272, 30);
@@ -334,7 +336,7 @@
             btnTipoProduto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnTipoProduto.IconSize = 15;
             btnTipoProduto.ImageAlign = ContentAlignment.MiddleRight;
-            btnTipoProduto.Location = new Point(0, 321);
+            btnTipoProduto.Location = new Point(0, 381);
             btnTipoProduto.Margin = new Padding(0, 0, 2, 0);
             btnTipoProduto.Name = "btnTipoProduto";
             btnTipoProduto.Size = new Size(272, 30);
@@ -359,7 +361,7 @@
             btnPrecoProduto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnPrecoProduto.IconSize = 15;
             btnPrecoProduto.ImageAlign = ContentAlignment.MiddleRight;
-            btnPrecoProduto.Location = new Point(0, 351);
+            btnPrecoProduto.Location = new Point(0, 411);
             btnPrecoProduto.Margin = new Padding(0, 0, 2, 0);
             btnPrecoProduto.Name = "btnPrecoProduto";
             btnPrecoProduto.Size = new Size(272, 30);
@@ -384,7 +386,7 @@
             btnMedida.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnMedida.IconSize = 15;
             btnMedida.ImageAlign = ContentAlignment.MiddleRight;
-            btnMedida.Location = new Point(0, 381);
+            btnMedida.Location = new Point(0, 441);
             btnMedida.Margin = new Padding(0, 0, 2, 0);
             btnMedida.Name = "btnMedida";
             btnMedida.Size = new Size(272, 30);
@@ -450,6 +452,31 @@
             guna2BorderlessForm1.ShadowColor = Color.MidnightBlue;
             guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
+            // btnSituacaoPedido
+            // 
+            btnSituacaoPedido.BackColor = Color.Red;
+            btnSituacaoPedido.Cursor = Cursors.Hand;
+            btnSituacaoPedido.FlatAppearance.BorderSize = 0;
+            btnSituacaoPedido.FlatStyle = FlatStyle.Flat;
+            btnSituacaoPedido.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSituacaoPedido.ForeColor = Color.White;
+            btnSituacaoPedido.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
+            btnSituacaoPedido.IconColor = Color.Orange;
+            btnSituacaoPedido.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSituacaoPedido.IconSize = 15;
+            btnSituacaoPedido.ImageAlign = ContentAlignment.MiddleRight;
+            btnSituacaoPedido.Location = new Point(0, 67);
+            btnSituacaoPedido.Margin = new Padding(0, 0, 2, 0);
+            btnSituacaoPedido.Name = "btnSituacaoPedido";
+            btnSituacaoPedido.Size = new Size(272, 60);
+            btnSituacaoPedido.TabIndex = 14;
+            btnSituacaoPedido.Text = "Situacao Pedido";
+            btnSituacaoPedido.TextAlign = ContentAlignment.MiddleRight;
+            btnSituacaoPedido.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnSituacaoPedido.UseVisualStyleBackColor = false;
+            btnSituacaoPedido.Visible = false;
+            btnSituacaoPedido.Click += btnSituacaoPedido_Click;
+            // 
             // FrmHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -498,5 +525,6 @@
         private Temp.BtnMnHome btnMnUsuarios;
         private Panel pnlControles;
         private Label lblTitulo;
+        private FontAwesome.Sharp.IconButton btnSituacaoPedido;
     }
 }

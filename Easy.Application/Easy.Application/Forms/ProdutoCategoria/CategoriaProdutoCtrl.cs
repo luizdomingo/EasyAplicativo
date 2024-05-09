@@ -244,6 +244,7 @@ namespace Easy.ApplicationDesk.Forms.Produtos
         {
             if (txtCategoriaProduto.Text == string.Empty)
                 return;
+           
             CategoriaProdutoDtoCreate dtoCreate = new CategoriaProdutoDtoCreate
             {
                 DescricaoCategoria = txtCategoriaProduto.Text
